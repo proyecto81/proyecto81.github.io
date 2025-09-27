@@ -1,101 +1,678 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio de Ariel Ale</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-    header {
-      background-color: #24292f;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    section h2 {
-      margin-top: 0;
-      color: #24292f;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    a {
-      color: #0366d6;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .badges img {
-      margin: 0.3rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariel Ale | Senior Full Stack Developer → Tech Lead</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            margin-right: 8px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: #667eea;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+
+        .strengths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .strength-item {
+            padding: 20px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .strength-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tech-category {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .tech-category h4 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-item {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .learning {
+            background: #48bb78;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .project-subtitle {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .project-details {
+            margin: 20px 0;
+        }
+
+        .project-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .project-detail i {
+            color: #667eea;
+            margin-top: 2px;
+        }
+
+        .achievements {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .achievements h5 {
+            color: #22543d;
+            margin-bottom: 10px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            color: #2f855a;
+        }
+
+        .achievements li {
+            margin-bottom: 5px;
+        }
+
+        .achievements li::before {
+            content: '✓';
+            color: #38a169;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .timeline-period {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            margin: 50px -40px -40px -40px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .cta-button.primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .cta-button.primary:hover {
+            background: #f7fafc;
+        }
+
+        .cta-button i {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .metrics {
+                gap: 20px;
+            }
+
+            .metric-number {
+                font-size: 1.5rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .cta-section {
+                margin: 30px -20px -20px -20px;
+                padding: 30px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Ariel Ale</h1>
-    <p>Desarrollador senior | 23+ años resolviendo desafíos técnicos | Fondador de Concilio del Sur</p>
-  </header>
+    <div class="container">
+        <div class="profile-card">
+            <header class="header">
+                <div class="header-content">
+                    <h1 class="name">Ariel Ale</h1>
+                    <p class="title">Senior Full Stack Developer → Tech Lead</p>
+                    
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-number">23+</div>
+                            <div class="metric-label">Años Experiencia</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">500+</div>
+                            <div class="metric-label">Proyectos</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">30K+</div>
+                            <div class="metric-label">Usuarios Gestionados</div>
+                        </div>
+                    </div>
 
-  <main>
-    <section>
-      <h2>🚀 Actualmente trabajando en</h2>
-      <ul>
-        <li><strong>Proyecto RPG Genérico:</strong> Herramienta para generar personajes pregenerados rápidamente.</li>
-        <li><strong>Concilio del Sur:</strong> Contenidos y herramientas para la comunidad de juegos de rol.</li>
-        <li><strong>Aplicación de inventario de cartas:</strong> Reconocimiento de cartas MECCG mediante cámara.</li>
-      </ul>
-    </section>
+                    <div class="social-links">
+                        <a href="https://www.proyecto81.com.ar/" class="cta-button" target="_blank">
+                        <i class="fas fa-globe"></i>
+                        Ver Portfolio
+                    </a>
+                </div>
+                <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 1.1rem;">
+                    <strong>"Construyendo el futuro, un sistema a la vez"</strong> 🚀
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <section>
-      <h2>📚 Aprendiendo / Explorando</h2>
-      <ul>
-        <li>React Native y Flutter para apps móviles</li>
-        <li>Optimización y escalabilidad de proyectos web</li>
-        <li>Integración de APIs de redes sociales</li>
-      </ul>
-    </section>
+    <script>
+        // Animación suave al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-    <section>
-      <h2>📬 Contacto</h2>
-      <ul>
-        <li><a href="https://www.linkedin.com/in/arielale">LinkedIn</a></li>
-        <li><a href="https://conciliodelsur.com.ar">Sitio web</a></li>
-        <li><a href="mailto:ariel@example.com">Correo electrónico</a></li>
-      </ul>
-    </section>
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
 
-    <section class="badges">
-      <h2>📊 Estadísticas</h2>
-      <img src="https://github-readme-stats.vercel.app/api?username=arielale&show_icons=true&theme=radical" alt="Estadísticas de GitHub">
-    </section>
-  </main>
+            // Aplicar animación a las secciones
+            const sections = document.querySelectorAll('.section, .project-card, .stat-card, .timeline-item');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Efecto hover en las tarjetas de proyecto
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Efecto de escritura en el nombre
+            const nameElement = document.querySelector('.name');
+            const originalText = nameElement.textContent;
+            nameElement.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    nameElement.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 500);
+
+            // Contador animado para las métricas
+            const animateCounters = () => {
+                const counters = document.querySelectorAll('.metric-number, .stat-number');
+                counters.forEach(counter => {
+                    const target = counter.textContent.replace(/[^\d]/g, '');
+                    if (target) {
+                        const increment = target / 50;
+                        let current = 0;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            counter.textContent = Math.floor(current) + counter.textContent.replace(/\d/g, '').replace(/^\d+/, '');
+                        }, 30);
+                    }
+                });
+            };
+
+            // Ejecutar contadores cuando las métricas son visibles
+            const metricsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        metricsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            const metricsSection = document.querySelector('.metrics');
+            if (metricsSection) {
+                metricsObserver.observe(metricsSection);
+            }
+
+            // Efecto parallax suave en el header
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const header = document.querySelector('.header');
+                const rate = scrolled * -0.5;
+                header.style.transform = `translateY(${rate}px)`;
+            });
+
+            // Smooth scroll para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Función para copiar email al clipboard
+        function copyEmail() {
+            navigator.clipboard.writeText('proyecto81@gmail.com').then(function() {
+                // Mostrar notificación temporal
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #48bb78;
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    z-index: 1000;
+                    animation: slideIn 0.3s ease;
+                `;
+                notification.textContent = '¡Email copiado al clipboard!';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            });
+        }
+
+        // CSS para la animación de la notificación
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes fadeInUp {
+                from { 
+                    opacity: 0; 
+                    transform: translateY(30px); 
+                }
+                to { 
+                    opacity: 1; 
+                    transform: translateY(0); 
+                }
+            }
+            
+            .fade-in-up {
+                animation: fadeInUp 0.6s ease forwards;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
